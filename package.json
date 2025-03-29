@@ -4,8 +4,6 @@
   "version": "1.0.0",
   "type": "module",
   "files":["dist"],
-  "main":"./dist/magiccomponentsreact.cjs",
-  "module": "./dist/magiccomponentsreact.js",
   "export":{
     "./hook":{
       "import":"./dist/magiccomponentshook.js",
