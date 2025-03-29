@@ -1,15 +1,15 @@
 {
   "name": "@mindemangou/magiccomponents-react",
   "private": false,
-  "version": "1.0.1",
+  "version": "1.0.2",
   "type": "module",
   "files":["dist"],
   "export":{
-    "./hook":{
+    ".":{
       "import":"./dist/magiccomponentshook.js",
       "require":"./dist/magiccomponentshook.cjs"
     },
-    ".":{
+    "./magiccomponentsreact":{
       "import":"./dist/magiccomponentsreact.js",
       "require":"./dist/magiccomponentsreact.cjs"
     }
