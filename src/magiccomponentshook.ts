@@ -1,41 +1,48 @@
 import { useCallback, useContext, useState } from "react"
 import {ajax,trigger} from 'htmx.org'
 import { getProps,getPath } from "@mindemangou/magiccomponents"
-import { MagicContext } from "./magiccomponentsreact"
+import { InitType, MagicContext } from "./magiccomponentsreact"
 
-export const useMagicComponentsData=()=> {
+export const useMagicData=<T={[k:string]:string}>()=> {
     
-    const contextData=useContext(MagicContext) as any
+    const contextData=useContext(MagicContext) as InitType<T>
         
-    const [state,setState]=useState({contextData,processing:false,errors:false})
+    const [state,setState]=useState({contextData,processing:false,error:false})
 
+    const key=contextData.key
     const refresh=useCallback((query:Record<string,string>={},fragment:string='')=> {
-            
+        
+        const tagName=contextData.tagName
+
+        if(key===undefined) {
+            console.warn(`You must add the data-key attribute on each ${tagName}`)
+            return ;
+        }
         setState((oldState)=>({...oldState,processing:true}))
 
         const template=document.createElement('template')
-    
-        const tagName=contextData.tagName 
-    
+
         template.id=tagName
         
         document.body.appendChild(template)
 
         const path=getPath(query,fragment)
-    
-        ajax('GET',path,{target:`#${tagName}`,select:`${tagName}`,swap:'innerHTML'}).then(()=> {
+
+        const selector=`${tagName}[data-key='${contextData.key}']`
+        
+        ajax('GET',path,{target:`#${tagName}`,select:selector,swap:'innerHTML'}).then(()=> {
             
             const element=template.firstElementChild as HTMLElement
     
-            const newdata=getProps(element)
+            const newdata=getProps(element) as InitType<T>
     
-            setState(()=>({contextData:newdata,processing:false,errors:false}))
+            setState(()=>({contextData:newdata,processing:false,error:false}))
     
         }).then(()=>{
             template.remove()
         }).catch((err)=> {
             console.error(err)
-            setState((oldState)=>({...oldState,processing:false,errors:true}))
+            setState((oldState)=>({...oldState,processing:false,error:true}))
         })  
           
     
@@ -53,25 +60,27 @@ export const useMagicComponentsData=()=> {
     },[])
 
 
-    return {...state.contextData,processing:state.processing,refresh,send}
+    return {...state.contextData,processing:state.processing,error:state.error,refresh,send}
 }
 
 export const useDataBag=()=> {
     
-    const data=useContext(MagicContext) as any
-    
-    const [dataBag,setDataBag]=useState<any[]>([])
+    const data=useContext(MagicContext) as InitType
     
     const element=document.querySelector(data.tagName)
 
-    element?.addEventListener('incoming_data',(evt:{detail:object})=> {
-       
-        setDataBag((oldData)=>{
+    const [dataBag,setDataBag]=useState<any[]>([])
 
-            return [...oldData,evt?.detail]
-        })
-        
-    })
+    element?.addEventListener('incoming_data', (evt) => {
+
+        const customEvent = evt as CustomEvent<{ elt: HTMLElement; [key: string]: any }>;
+
+        const { elt, ...rest } = customEvent.detail;
+
+        setDataBag(() => {
+            return [...dataBag, rest];
+        });
+    });
 
     return dataBag
 }

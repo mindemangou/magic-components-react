@@ -8,7 +8,6 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
-dist
 dist-ssr
 *.local
 
@@ -30,3 +29,4 @@ public
 src/assets
 components
 vite-env.d.ts
+index.php

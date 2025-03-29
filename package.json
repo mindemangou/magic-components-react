@@ -3,6 +3,19 @@
   "private": false,
   "version": "1.0.0",
   "type": "module",
+  "files":["dist"],
+  "main":"./dist/magiccomponentsreact.cjs",
+  "module": "./dist/magiccomponentsreact.js",
+  "export":{
+    "./hook":{
+      "import":"./dist/magiccomponentshook.js",
+      "require":"./dist/magiccomponentshook.cjs"
+    },
+    ".":{
+      "import":"./dist/magiccomponentsreact.js",
+      "require":"./dist/magiccomponentsreact.cjs"
+    }
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
@@ -10,7 +23,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@mindemangou/magiccomponents": "^1.1.0",
+    "@mindemangou/magiccomponents": "^2.1.4",
+    "@types/node": "^22.13.14",
     "htmx.org": "^1.9.12",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
