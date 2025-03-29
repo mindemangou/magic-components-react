@@ -6,7 +6,7 @@ type InitType<T = { [k: string]: string; }> = {
     key?: string;
 } & T
 
-declare module '@mindemangou//magiccomponents-react' {
+declare module 'magiccomponents-react' {
 
     /**
      * Fournisseur de contexte pour les composants magiques.
