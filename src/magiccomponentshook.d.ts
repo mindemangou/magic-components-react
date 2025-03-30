@@ -5,7 +5,7 @@ type InitType<T = { [k: string]: string; }> = {
     key?: string;
 } & T
 
-declare module 'magiccomponents-react/hook' {
+declare module '@mindemangou/magiccomponents-react/hook' {
 
     /**
      * Hook pour gérer les données magiques.
