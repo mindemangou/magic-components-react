@@ -1,10 +1,13 @@
 import type { PropsWithChildren,JSX } from "react";
 
-type InitType<T = { [k: string]: string; }> = {
-    tagName: string;
-    data: Record<string, any>;
-    key?: string;
-} & T
+type DefaultPropsType={
+    tagName: string
+    data: Record<string, any>
+    key?:string
+}
+
+type InitType<T={ [k:string]:string}> =DefaultPropsType & T
+
 
 declare module '@mindemangou/magiccomponents-react' {
 

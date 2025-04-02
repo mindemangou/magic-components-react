@@ -2,14 +2,16 @@ import { createContext, type PropsWithChildren } from "react"
 
 export const MagicContext=createContext({})
 
-export type InitType<T={ [k:string]:string}> = {
+type DefaultPropsType={
     tagName: string
     data: Record<string, any>
     key?:string
-}& T
+}
+
+export type InitType<T={ [k:string]:string}> =DefaultPropsType & T
 
 type BrigeProviderType=PropsWithChildren<{
-    init:InitType
+    init:DefaultPropsType|InitType
 }>
 
 export const MagicComponentsProvider=({children,init}:BrigeProviderType)=> {

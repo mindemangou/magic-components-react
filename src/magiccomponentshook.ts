@@ -10,6 +10,7 @@ export const useMagicData=<T={[k:string]:string}>()=> {
     const [state,setState]=useState({contextData,processing:false,error:false})
 
     const key=contextData.key
+    
     const refresh=useCallback((query:Record<string,string>={},fragment:string='')=> {
         
         const tagName=contextData.tagName
@@ -49,7 +50,7 @@ export const useMagicData=<T={[k:string]:string}>()=> {
     },[])
 
     const send=useCallback((name:string,data:any)=> {
-            
+        
         const element=document.querySelector(name)
         
         if(element) {
