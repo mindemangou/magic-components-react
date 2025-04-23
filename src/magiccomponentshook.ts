@@ -1,5 +1,5 @@
 import { useCallback, useContext, useState } from "react"
-import {ajax,trigger} from 'htmx.org'
+import htmx from 'htmx.org'
 import { getProps,getPath } from "@mindemangou/magiccomponents"
 import { InitType, MagicContext } from "./magiccomponentsreact"
 
@@ -31,7 +31,7 @@ export const useMagicData=<T={[k:string]:string}>()=> {
 
         const selector=`${tagName}[data-key='${contextData.key}']`
         
-        ajax('GET',path,{target:`#${tagName}`,select:selector,swap:'innerHTML'}).then(()=> {
+        return htmx.ajax('get',path,{target:`#${tagName}`,select:selector,swap:'innerHTML'}).then(()=> {
             
             const element=template.firstElementChild as HTMLElement
     
@@ -55,7 +55,7 @@ export const useMagicData=<T={[k:string]:string}>()=> {
         
         if(element) {
             
-            trigger(element,'incoming_data',{tagName:name,data})
+            htmx.trigger(element,'incoming_data',{tagName:name,data})
         }
 
     },[])

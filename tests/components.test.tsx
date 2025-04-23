@@ -5,12 +5,10 @@ import {MagicComponentsProvider} from '../src/magiccomponentsreact'
 
 test('components mount test ',()=> {
     
-    vi.spyOn(console,'log')
-
     const { getByText } = render(
         <MagicComponentsProvider init={{tagName:'app-app',data:{},ville:'cotonou'}}>
-            <p>Magic component p</p>
+            <p>Magic component</p>
         </MagicComponentsProvider>
     );
-    expect(getByText("Magic component p")).toBeTruthy();
+    expect(getByText("Magic component")).toBeTruthy();
 })

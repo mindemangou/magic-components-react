@@ -11,7 +11,7 @@ type DefaultPropsType={
 export type InitType<T={ [k:string]:string}> =DefaultPropsType & T
 
 type BrigeProviderType=PropsWithChildren<{
-    init:DefaultPropsType|InitType
+    init:DefaultPropsType|InitType|object
 }>
 
 export const MagicComponentsProvider=({children,init}:BrigeProviderType)=> {
