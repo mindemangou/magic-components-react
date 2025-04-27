@@ -17,11 +17,12 @@
   "bugs": {
     "url": "https://github.com/mindemangou/magic-components-react/issues"
   },
-  "version": "2.1.4",
+  "version": "2.1.5",
   "type": "module",
   "files": [
     "dist"
   ],
+  "types": "./dist/types.d.ts",
   "main": "./dist/magiccomponentsreact.cjs",
   "module": "./dist/magiccomponentsreact.js",
   "exports": {
@@ -34,10 +35,9 @@
       "require": "./dist/magiccomponentsreact.cjs"
     }
   },
-  "types": "./dist/globaltypes.d.ts",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build && cp ./src/globaltypes.d.ts ./dist/globaltypes.d.ts ",
+    "build": "tsc -b && vite build && cp ./src/types.d.ts ./dist/types.d.ts ",
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest"
