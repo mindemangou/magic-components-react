@@ -1,7 +1,23 @@
 {
   "name": "@mindemangou/magiccomponents-react",
   "private": false,
-  "version": "2.0.0",
+  "license":"MIT",
+  "author": {
+    "name": "Mindemangou FADONOUGBO",
+    "email": "mindemangou@gmail.com"
+  },
+  "description": "Magic Components-React is a JavaScript library that allows you to easily connect your frontend and backend without using an API, thanks to custom elements",
+  "keywords": [
+    "react","reactjs","web components","custom elements","magic components"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mindemangou/magic-components-react"
+  },
+  "bugs": {
+    "url": "https://github.com/mindemangou/magic-components-react/issues"
+  },
+  "version": "2.1.0",
   "type": "module",
   "files": [
     "dist"
@@ -26,8 +42,7 @@
     "test": "vitest"
   },
   "dependencies": {
-    "@mindemangou/magiccomponents": "^4.1.1",
-    "@types/node": "^22.14.1",
+    "@mindemangou/magiccomponents": "^4.2.1",
     "htmx.org": "2.0.4",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
@@ -36,6 +51,7 @@
     "@eslint/js": "^9.25.1",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/react": "^16.3.0",
+    "@types/node": "^22.15.2",
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
     "@vitejs/plugin-react": "^4.4.1",

@@ -1,7 +1,7 @@
 import { useCallback, useContext, useState } from "react"
-import htmx from 'htmx.org'
 import { getProps,getPath } from "@mindemangou/magiccomponents"
 import { InitType, MagicContext } from "./magiccomponentsreact"
+
 
 export const useMagicData=<T={[k:string]:string}>()=> {
     
@@ -11,8 +11,10 @@ export const useMagicData=<T={[k:string]:string}>()=> {
 
     const key=contextData.key
     
-    const refresh=useCallback((query:Record<string,string>={},fragment:string='')=> {
+    const refresh=useCallback(async (query:Record<string,string>={},fragment:string='')=> {
         
+        const {ajax}=(await import('htmx.org')).default 
+
         const tagName=contextData.tagName
 
         if(key===undefined) {
@@ -31,7 +33,7 @@ export const useMagicData=<T={[k:string]:string}>()=> {
 
         const selector=`${tagName}[data-key='${contextData.key}']`
         
-        return htmx.ajax('get',path,{target:`#${tagName}`,select:selector,swap:'innerHTML'}).then(()=> {
+        return ajax('get',path,{target:`#${tagName}`,select:selector,swap:'innerHTML'}).then(()=> {
             
             const element=template.firstElementChild as HTMLElement
     
@@ -49,13 +51,15 @@ export const useMagicData=<T={[k:string]:string}>()=> {
     
     },[])
 
-    const send=useCallback((name:string,data:any)=> {
-        
+    const send=useCallback(async (name:string,data:any)=> {
+
+        const {trigger}=(await import('htmx.org')).default 
+
         const element=document.querySelector(name)
         
         if(element) {
             
-            htmx.trigger(element,'incoming_data',{tagName:name,data})
+            trigger(element,'incoming_data',{tagName:name,data})
         }
 
     },[])
