@@ -76,6 +76,7 @@ You can refresh the data coming from the server using the `refresh()` function
             </>
     }
 ```
+**⚠️ Important**:If you mount a component in multiple places within your application, the refresh method will not work unless you add a data-key attribute to each instance of the component.
 
 ## License
 

@@ -17,7 +17,7 @@
   "bugs": {
     "url": "https://github.com/mindemangou/magic-components-react/issues"
   },
-  "version": "2.1.0",
+  "version": "2.1.1",
   "type": "module",
   "files": [
     "dist"
