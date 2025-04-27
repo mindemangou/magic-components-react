@@ -17,7 +17,7 @@
   "bugs": {
     "url": "https://github.com/mindemangou/magic-components-react/issues"
   },
-  "version": "2.1.2",
+  "version": "2.1.3",
   "type": "module",
   "files": [
     "dist"
@@ -34,9 +34,10 @@
       "require": "./dist/magiccomponentsreact.cjs"
     }
   },
+  "typings": "./dist/**/*.d.ts",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build && cp ./src/magiccomponentshooktypes.d.ts ./dist/magiccomponentshooktypes.d.ts && cp ./src/magiccomponentsreacttypes.d.ts ./dist/magiccomponentsreacttypes.d.ts",
+    "build": "tsc -b && vite build && cp ./src/globaltypes.d.ts ./dist/globaltypes.d.ts ",
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest"

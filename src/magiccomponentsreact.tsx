@@ -1,5 +1,5 @@
 import { createContext } from "react"
-import type {MagicComponentsProviderType} from './magiccomponentsreacttypes'
+import type {MagicComponentsProviderType} from './globaltypes'
 
 export const MagicContext=createContext({})
 

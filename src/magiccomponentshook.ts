@@ -1,7 +1,7 @@
 import { useCallback, useContext, useState } from "react"
 import { getProps,getPath } from "@mindemangou/magiccomponents"
 import {  MagicContext } from "./magiccomponentsreact"
-import type {InitType} from './magiccomponentsreacttypes'
+import type {InitType} from './globaltypes'
 
 
 export const useMagicData=<T={[k:string]:string}>()=> {
