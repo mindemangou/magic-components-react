@@ -17,7 +17,7 @@
   "bugs": {
     "url": "https://github.com/mindemangou/magic-components-react/issues"
   },
-  "version": "2.1.3",
+  "version": "2.1.4",
   "type": "module",
   "files": [
     "dist"
@@ -34,7 +34,7 @@
       "require": "./dist/magiccomponentsreact.cjs"
     }
   },
-  "typings": "./dist/**/*.d.ts",
+  "types": "./dist/globaltypes.d.ts",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build && cp ./src/globaltypes.d.ts ./dist/globaltypes.d.ts ",
