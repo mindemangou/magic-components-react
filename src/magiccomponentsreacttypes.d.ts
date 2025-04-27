@@ -9,12 +9,16 @@ type DefaultPropsType={
 type InitType<T={ [k:string]:string}> =DefaultPropsType & T
 
 
+export type MagicComponentsProviderType=PropsWithChildren<{
+    init:DefaultPropsType|InitType|object
+}>
+
 declare module '@mindemangou/magiccomponents-react' {
 
     /**
      * Fournisseur de contexte pour les composants magiques.
      */
-     const MagicComponentsProvider: <T = any>(
-    props: PropsWithChildren<{ init: InitType<T> }>
+     const MagicComponentsProvider:(
+        props: MagicComponentsProviderType
     ) => JSX.Element;
 }

@@ -1,20 +1,11 @@
-import { createContext, type PropsWithChildren } from "react"
+import { createContext } from "react"
+import type {MagicComponentsProviderType} from './magiccomponentsreacttypes'
 
 export const MagicContext=createContext({})
 
-type DefaultPropsType={
-    tagName: string
-    data: Record<string, any>
-    key?:string
-}
 
-export type InitType<T={ [k:string]:string}> =DefaultPropsType & T
 
-type BrigeProviderType=PropsWithChildren<{
-    init:DefaultPropsType|InitType|object
-}>
-
-export const MagicComponentsProvider=({children,init}:BrigeProviderType)=> {
+export const MagicComponentsProvider=({children,init}:MagicComponentsProviderType)=> {
     return <MagicContext value={{...init}}>
                 {children}
             </MagicContext>
