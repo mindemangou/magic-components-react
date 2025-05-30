@@ -16,8 +16,7 @@ export default defineConfig({
     
     lib: {
       entry: {
-        'magiccomponentshook': resolve(__dirname, './src/magiccomponentshook.ts'),
-        'magiccomponentsreact': resolve(__dirname, './src/magiccomponentsreact.tsx'),
+        'magiccomponentshook': resolve(__dirname, './src/magiccomponentshook.ts')
       },
       name: 'magiccomponents-react',
     },

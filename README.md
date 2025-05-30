@@ -19,25 +19,21 @@ Here’s a quick example of how to use Magic components-react:
 
 ```tsx
 import { define} from "@mindemangou/magiccomponents"
-import {  useMagicData } from "@mindemangou/magiccomponents-react/hook"
-import { MagicComponentsProvider } from "@mindemangou/magiccomponents-react"
 import { createRoot } from "react-dom/client"
 
 
-const User=()=> {
-    const {name,age}=useMagicData()
+const User=({data})=> {
+    const {name,age}=data
 
     console.log(name,age) //abla 25
 
     return <p>Name:{name} - Age:{age}</p>
 }
 
-define({tagname:'user-user'},async ({element})=> {
+define({tagname:'user-user'},async ({element,props})=> {
     
     createRoot(element).render(
-        <MagicComponentsProvider init={element.magicData}>
-            <User/>
-        </MagicComponentsProvider>
+            <User data={props} />
     )
     
 })
@@ -54,18 +50,16 @@ define({tagname:'user-user'},async ({element})=> {
 
 ## Data Refresh
 
-You can refresh the data coming from the server using the `refresh()` function
+You can refresh custom element props coming from the server using the `refreshProps()` function
 
 ```tsx
-    import {  useMagicData } from "@mindemangou/magiccomponents-react/hook"
-    import { MagicComponentsProvider } from "@mindemangou/magiccomponents-react"
 
-
-    const User=()=> {
-        const {name,age,refresh}=useMagicData()
+    const User=({refreshData})=> {
 
         const handleClick=()=> {
-            refresh()
+            refreshData().then((newData)=>{
+                console.log(newData)
+            })
         }
         
         return <>
@@ -75,6 +69,14 @@ You can refresh the data coming from the server using the `refresh()` function
                 </button>
             </>
     }
+
+    define({tagname:'user-user'},async ({element,props,refreshData})=> {
+    
+        createRoot(element).render(
+                <User refreshData={refreshData} />
+        )
+        
+    })
 ```
 **⚠️ Important**:If you mount a component in multiple places within your application, the refresh method will not work unless you add a data-key attribute to each instance of the component.
 
