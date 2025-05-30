@@ -1,7 +1,5 @@
-declare module '@mindemangou/magiccomponents-react/hook' {
+declare module '@mindemangou/magiccomponents-react' {
 
-    
-  
-      const useDataBag:()=>any[];
-  }
+      const useDataBag:(tagname:string)=>any[];
+}
   
