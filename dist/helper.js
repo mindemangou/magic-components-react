@@ -3614,7 +3614,7 @@ const bn = /* @__PURE__ */ sr(yr), On = bn.default || bn, Rr = (i) => {
       k && E && c.set(E, On(k));
     }
     const v = nn.sanitize(o);
-    return c.set("slots", On(v)), Object.fromEntries(c);
+    return c.set("allSlots", On(v)), Object.fromEntries(c);
   }
   return { allSlots: "" };
 };
