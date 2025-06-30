@@ -13,13 +13,27 @@ export default defineConfig({
     environment: 'happy-dom'
   },
   build: {
-    
     lib: {
       entry: {
         'helper': resolve(__dirname, './src/helper.ts')
       },
       name: 'magiccomponents-react',
     },
-   
+    rollupOptions: {
+      output: [
+        {
+          format: 'es',
+          entryFileNames: 'helper.js',
+          dir: 'dist',
+          exports: 'named'
+        },
+        {
+          format: 'cjs',
+          entryFileNames: 'helper.umd.cjs',
+          dir: 'dist',
+          exports: 'named'
+        }
+      ]
+    }
   }
 })
