@@ -27,7 +27,7 @@ export const getSlotsForReact=(template:HTMLTemplateElement):SlotsType=>{
 
         const sanitizeContent=Dompurify.sanitize(content)
 
-        tagMap.set('slots',parse(sanitizeContent))
+        tagMap.set('allSlots',parse(sanitizeContent))
 
         return Object.fromEntries(tagMap)
         
