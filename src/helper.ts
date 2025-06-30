@@ -19,14 +19,14 @@ export const getSlotsForReact=(template:HTMLTemplateElement):SlotsType=>{
             const slotName=tag.getAttribute('slot')
             
             if(sanitizeTag && slotName){
-                tagMap.set(slotName,parse(sanitizeTag))
+                 tagMap.set(slotName,parse(sanitizeTag.toString()))
             }
 
         }
 
         const sanitizeContent=Dompurify.sanitize(content)
 
-        tagMap.set('allSlots',parse(sanitizeContent))
+        tagMap.set('allSlots',parse(sanitizeContent.toString()))
 
         return Object.fromEntries(tagMap)
         
@@ -34,3 +34,11 @@ export const getSlotsForReact=(template:HTMLTemplateElement):SlotsType=>{
 
     return {allSlots:''}
 }
+
+
+// const x=parse("<p slot='ecole'>JSJS</p>")
+
+// console.log(x)
+// const res=getSlotsForReact(document.querySelector('template'))
+
+// console.log(res)

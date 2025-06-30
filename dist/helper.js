@@ -3611,10 +3611,10 @@ const bn = /* @__PURE__ */ sr(yr), On = bn.default || bn, Rr = (i) => {
     const o = i.content, d = [...o.querySelectorAll("[slot]")], c = /* @__PURE__ */ new Map();
     for (const T of d) {
       const k = nn.sanitize(T), E = T.getAttribute("slot");
-      k && E && c.set(E, On(k));
+      k && E && c.set(E, On(k.toString()));
     }
     const v = nn.sanitize(o);
-    return c.set("allSlots", On(v)), Object.fromEntries(c);
+    return c.set("allSlots", On(v.toString())), Object.fromEntries(c);
   }
   return { allSlots: "" };
 };
