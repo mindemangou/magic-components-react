@@ -28,6 +28,7 @@
   ],
   "main": "./dist/helper.umd.cjs",
   "module": "./dist/helper.js",
+  "types":"./dist/magiccomponents-react.d.ts",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build  &&  cp ./src/magiccomponents-react.d.ts ./dist/magiccomponents-react.d.ts ",
