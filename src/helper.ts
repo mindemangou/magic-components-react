@@ -1,6 +1,6 @@
 import Dompurify from 'dompurify'
 import parse from 'html-react-parser'
-import type { SlotsType } from './types'
+import type { SlotsType } from './magiccomponents-react'
 
 export const getSlotsForReact=(template:HTMLTemplateElement):SlotsType=>{
 
