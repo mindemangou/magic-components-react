@@ -21,22 +21,24 @@
   "bugs": {
     "url": "https://github.com/mindemangou/magic-components-react/issues"
   },
-  "version": "3.0.0",
+  "version": "1.0.0",
   "type": "module",
   "files": [
     "dist"
   ],
-  "main": "./dist/magiccomponentshook.cjs",
-  "module": "./dist/magiccomponentshook.js",
+  "main": "./dist/helper.umd.cjs",
+  "module": "./dist/helper.js",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build  &&  cp ./src/magiccomponentshook.d.ts ./dist/magiccomponentshook.d.ts ",
+    "build": "tsc -b && vite build  &&  cp ./src/types.d.ts ./dist/types.d.ts ",
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest"
   },
   "dependencies": {
     "@mindemangou/magiccomponents": "^5.0.1",
+    "dompurify": "^3.2.6",
+    "html-react-parser": "^5.2.5",
     "htmx.org": "2.0.4",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"

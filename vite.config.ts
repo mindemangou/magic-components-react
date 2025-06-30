@@ -16,20 +16,10 @@ export default defineConfig({
     
     lib: {
       entry: {
-        'magiccomponentshook': resolve(__dirname, './src/magiccomponentshook.ts')
+        'helper': resolve(__dirname, './src/helper.ts')
       },
       name: 'magiccomponents-react',
     },
-    rollupOptions: {
-      external: ['htmx.org','react', 'react-dom'],
-      output: {
-        globals: {
-          'htmx.org': 'htmx',
-          react: 'React',
-          'react-dom': 'ReactDOM'
-        },
-      },
-    }
    
   }
 })
