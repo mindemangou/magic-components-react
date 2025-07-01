@@ -17,7 +17,7 @@ export default defineConfig({
     
     lib: {
       entry: {
-        'helper': resolve(__dirname, './src/helper.tsx')
+        'helper': resolve(__dirname, './src/helper.ts')
       },
       name: 'magiccomponents-react',
     },
