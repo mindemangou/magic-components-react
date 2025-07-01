@@ -21,7 +21,11 @@
   "bugs": {
     "url": "https://github.com/mindemangou/magic-components-react/issues"
   },
-  "version": "4.1.1",
+    "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
+  },
+  "version": "4.1.2",
   "type": "module",
   "files": [
     "dist"
@@ -40,10 +44,6 @@
     "dompurify": "^3.2.6",
     "html-react-parser": "^5.2.5"
 
-  },
-  "peerDependencies": {
-  "react": ">=18.0.0",
-  "react-dom": ">=18.0.0"
   },
   "devDependencies": {
     "@mindemangou/magiccomponents": "^5.0.1",

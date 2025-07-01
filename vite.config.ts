@@ -12,14 +12,17 @@ export default defineConfig({
   test: {
     environment: 'happy-dom'
   },
+  
   build: {
+    
     lib: {
       entry: {
-        'helper': resolve(__dirname, './src/helper.ts')
+        'helper': resolve(__dirname, './src/helper.tsx')
       },
       name: 'magiccomponents-react',
     },
     rollupOptions: {
+      external: ['react', 'react-dom'],
       output: [
         {
           format: 'es',
