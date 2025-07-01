@@ -15,7 +15,7 @@ export const getSlotsForReact = (template: HTMLTemplateElement): SlotsType => {
 
             const slotName = tag.getAttribute('slot')
             if (sanitized && slotName) {
-                tagMap.set(slotName, <>{parsed}</>) // 👈 Toujours envelopper dans un fragment
+                tagMap.set(slotName, parsed)
             }
         }
 
@@ -25,7 +25,7 @@ export const getSlotsForReact = (template: HTMLTemplateElement): SlotsType => {
         const allSanitized = Dompurify.sanitize(container.innerHTML)
         const allParsed = parse(allSanitized)
 
-        tagMap.set('allSlots', <>{allParsed}</>) // 👈 Fragment aussi ici
+        tagMap.set('allSlots', allParsed)
 
         return Object.fromEntries(tagMap)
     }
