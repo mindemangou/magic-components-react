@@ -10,11 +10,11 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 export default defineConfig({
   plugins: [react()],
   test: {
-    environment: 'happy-dom'
+    environment: 'jsdom'
   },
   
   build: {
-    
+    minify:true,
     lib: {
       entry: {
         'helper': resolve(__dirname, './src/helper.ts')
