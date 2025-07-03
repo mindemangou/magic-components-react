@@ -1,6 +1,6 @@
 import Dompurify from 'dompurify'
 import parse from 'html-react-parser'
-import type { SlotsType } from './magiccomponents-react'
+import type { SlotsType } from './magiccomponents-react-types'
 
 const sanitizeConfig = {
     FORBID_TAGS: ['style', 'script', 'iframe', 'object', 'embed','link', 'meta']

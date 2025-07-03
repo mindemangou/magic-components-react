@@ -2,15 +2,12 @@
   "name": "@mindemangou/magiccomponents-react",
   "private": false,
   "license": "MIT",
-  "version": "4.1.8",
+  "version": "4.1.9",
   "type": "module",
-  "main": "./dist/helper.umd.cjs",
-  "module": "./dist/helper.js",
-  "types":"./dist/magiccomponents-react.d.ts",
-  "exports": {
-    "import": "./dist/helper.js",
-    "require": "./dist/helper.umd.cjs"
-  },
+  "main": "./dist/helper.js",
+  "module": "./dist/helper.umd.cjs",
+  "types":"./dist/magiccomponents-react-types.d.ts",
+
   "files": [
     "dist"
   ],
@@ -42,7 +39,7 @@
 
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build  &&  cp ./src/magiccomponents-react.d.ts ./dist/magiccomponents-react.d.ts ",
+    "build": "tsc -b && vite build  &&  cp ./src/magiccomponents-react-types.d.ts ./dist/magiccomponents-react-types.d.ts ",
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest"
