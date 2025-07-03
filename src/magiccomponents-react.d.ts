@@ -7,13 +7,9 @@ import parse from 'html-react-parser';
  */
 export type SlotsType<Keys extends string | number | symbol = string> = { [key in Keys]: ReturnType<typeof parse> } & { allSlots: ReturnType<typeof parse> };
  
-declare module 'mindemangou/magiccomponents-react' {
-    /**
-     * Extracts and parses slots from a HTMLTemplateElement for React usage.
-     * @param template - The HTMLTemplateElement to extract slots from.
-     * @returns An object mapping slot names to parsed React nodes, plus 'allSlots'.
-     */
-     const getSlotsForReact: (template: HTMLTemplateElement) => SlotsType;
-
-     export { getSlotsForReact };
-}
+/**
+ * Extracts and parses slots from a HTMLTemplateElement for React usage.
+ * @param template - The HTMLTemplateElement to extract slots from.
+ * @returns An object mapping slot names to parsed React nodes, plus 'allSlots'.
+ */
+export const getSlotsForReact: (template: HTMLTemplateElement) => SlotsType;
