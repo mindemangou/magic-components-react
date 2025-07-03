@@ -13,5 +13,5 @@ declare module '@mindemangou/magiccomponents-react' {
      * @param template - The HTMLTemplateElement to extract slots from.
      * @returns An object mapping slot names to parsed React nodes, plus 'allSlots'.
      */
-    export const getSlotsForReact: (template: HTMLTemplateElement) => SlotsType;
+     const getSlotsForReact: (template: HTMLTemplateElement) => SlotsType;
 }
