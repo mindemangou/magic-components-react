@@ -5,7 +5,7 @@ import parse from 'html-react-parser';
  * Keys are slot names, values are the result of html-react-parser.
  * Includes a special key 'allSlots' for the entire parsed content.
  */
-export type SlotsType<Keys extends PropertyKey = string> = { [key in Keys]: ReturnType<typeof parse> } & { allSlots: ReturnType<typeof parse> };
+export type SlotsType<Keys extends PropertyKey = string> = { [key in Keys]: ReturnType<typeof parse> };
  
 declare module '@mindemangou/magiccomponents-react' {
     /**

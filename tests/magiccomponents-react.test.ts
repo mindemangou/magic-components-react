@@ -15,14 +15,8 @@ describe('getSlotsForReact', () => {
         const slots = getSlotsForReact(template)
         expect(slots.foo).toBeTruthy()
         expect(slots.bar).toBeTruthy()
-        expect(slots.allSlots).toBeTruthy()
     })
 
-    it('should return empty allSlots when template is null', () => {
-        // @ts-ignore
-        const slots = getSlotsForReact(null)
-        expect(slots.allSlots).toBeDefined()
-    })
 
     it('should sanitize forbidden tags', () => {
         const template = document.createElement('template')

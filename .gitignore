@@ -27,6 +27,7 @@ index.html
 eslint.config.js
 public
 src/assets
-components
+src/components
 vite-env.d.ts
 index.php
+dist/vite.svg
