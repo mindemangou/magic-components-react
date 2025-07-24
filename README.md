@@ -6,11 +6,11 @@
 You can install Magic components-react via
 
 ```bash
-npm install @mindemangou/magiccomponents  @mindemangou/magiccomponents-react 
+npm install   @mindemangou/magiccomponents-react 
 
 or
 
-pnpm install @mindemangou/magiccomponents @mindemangou/magiccomponents-react
+pnpm install  @mindemangou/magiccomponents-react
 ```
 
 
