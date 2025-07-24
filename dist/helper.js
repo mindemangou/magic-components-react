@@ -2395,13 +2395,11 @@ function fr() {
 }
 var pr = fr();
 const un = /* @__PURE__ */ er(pr), dr = un.default || un, mr = {
-  FORBID_TAGS: ["style", "script", "iframe", "object", "embed"]
+  FORBID_TAGS: ["style", "script", "iframe", "object", "embed", "link", "meta"]
 }, gr = (n) => {
-  if (typeof document > "u")
+  if (typeof document > "u" || n === null)
     return {};
-  if (!n || !(n instanceof HTMLTemplateElement) || !n.content)
-    return {};
-  const u = [...n.content.querySelectorAll("[slot]")], l = /* @__PURE__ */ new Map();
+  const u = [...(n instanceof HTMLTemplateElement ? n.content : n).querySelectorAll("[slot]")], l = /* @__PURE__ */ new Map();
   for (const d of u) {
     const m = d.getAttribute("slot");
     if (!m)

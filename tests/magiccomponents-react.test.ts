@@ -2,7 +2,7 @@ import { describe, it, expect } from 'vitest'
 import { getSlotsForReact } from '../src/helper'
 
 describe('getSlotsForReact', () => {
-    it('should return allSlots and named slots from a valid template', () => {
+    it('should return named slots from a valid template', () => {
         // Utilisation de jsdom (déjà fourni par vitest avec environment: 'jsdom')
         const template = document.createElement('template')
         template.innerHTML = `

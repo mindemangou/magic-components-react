@@ -3,25 +3,16 @@ import parse from 'html-react-parser'
 import type { SlotsType } from './magiccomponents-react-types'
 
 const sanitizeConfig = {
-    FORBID_TAGS: ['style', 'script', 'iframe', 'object', 'embed']
+    FORBID_TAGS: ['style', 'script', 'iframe', 'object', 'embed',"link","meta"]
 };
 
-export const getSlotsForReact = (template: HTMLTemplateElement): SlotsType => {
+export const getSlotsForReact = (element: HTMLElement|null): SlotsType => {
     // Vérification de l'environnement DOM
-    if (typeof document === 'undefined') {
+    if (typeof document === 'undefined' || element===null) {
         return {  }
     }
 
-    // Vérification explicite du template
-    if (
-        !template ||
-        !(template instanceof HTMLTemplateElement) ||
-        !template.content
-    ) {
-        return { }
-    }
-
-    const content = template.content
+    const content = element instanceof HTMLTemplateElement? element.content:element
 
     const tags = [...content.querySelectorAll("[slot]")]
     const tagMap = new Map()
@@ -45,13 +36,6 @@ export const getSlotsForReact = (template: HTMLTemplateElement): SlotsType => {
         }
     }
 
-    // Pour tout le contenu
-    // const container = document.createElement("div")
-    // container.appendChild(content.cloneNode(true))
-    // const allSanitized = Dompurify.sanitize(container.innerHTML, sanitizeConfig)
-    // const allParsed = parse(allSanitized)
-
-    // tagMap.set('allSlots', allParsed)
 
     return Object.fromEntries(tagMap)
 }
