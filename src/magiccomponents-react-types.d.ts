@@ -13,6 +13,6 @@ declare module '@mindemangou/magiccomponents-react' {
      * @param element - The HTMLElement to extract slots from.
      * @returns An object mapping slot names to parsed React nodes.
      */
-    export const getSlotsForReact: (element: HTMLElement) => SlotsType;
+    export const getSlotsForReact: (element: HTMLElement|null) => SlotsType;
 
 }
