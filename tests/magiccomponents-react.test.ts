@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
-import { getSlotsForReact } from '../src/helper'
+import { ReactAdaptater } from '../src/helper'
 
-describe('getSlotsForReact', () => {
+describe('ReactAdaptater', () => {
     it('should return named slots from a valid template', () => {
         // Utilisation de jsdom (déjà fourni par vitest avec environment: 'jsdom')
         const template = document.createElement('template')
@@ -12,7 +12,7 @@ describe('getSlotsForReact', () => {
         `
 
         // @ts-ignore
-        const slots = getSlotsForReact(template)
+        const slots = ReactAdaptater(template)
         expect(slots.foo).toBeTruthy()
         expect(slots.bar).toBeTruthy()
     })
@@ -25,7 +25,7 @@ describe('getSlotsForReact', () => {
         `
 
         // @ts-ignore
-        const slots = getSlotsForReact(template)
+        const slots = ReactAdaptater(template)
         expect(slots.x).toBeTruthy()
         // On vérifie que le script n'est plus dans le rendu
         // @ts-ignore

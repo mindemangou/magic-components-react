@@ -14,7 +14,6 @@ export default defineConfig({
   },
   
   build: {
-    minify:true,
     lib: {
       entry: {
         'helper': resolve(__dirname, './src/helper.ts')

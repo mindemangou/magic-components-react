@@ -1,11 +1,7 @@
-import parse from 'html-react-parser';
+import type {ReactNode} from 'react'
 
-/**
- * Represents the type of slots returned for React components.
- * Keys are slot names, values are the result of html-react-parser.
- * 
- */
-export type SlotsType<Keys extends PropertyKey = string> = { [key in Keys]: ReturnType<typeof parse> };
+
+export type ReactAdaptaterType=(element: HTMLElement|null) => ({[key:PropertyKey]:ReactNode});
  
 declare module '@mindemangou/magiccomponents-react' {
     /**
@@ -13,6 +9,6 @@ declare module '@mindemangou/magiccomponents-react' {
      * @param element - The HTMLElement to extract slots from.
      * @returns An object mapping slot names to parsed React nodes.
      */
-    export const getSlotsForReact: (element: HTMLElement|null) => SlotsType;
+    export const ReactAdaptater:ReactAdaptaterType 
 
 }

@@ -1,12 +1,13 @@
 import Dompurify from 'dompurify'
 import parse from 'html-react-parser'
-import type { SlotsType } from './magiccomponents-react-types'
+import { ReactAdaptaterType } from './magiccomponents-react-types';
 
 const sanitizeConfig = {
     FORBID_TAGS: ['style', 'script', 'iframe', 'object', 'embed',"link","meta"]
 };
 
-export const getSlotsForReact = (element: HTMLElement|null): SlotsType => {
+export const ReactAdaptater:ReactAdaptaterType = (element) => {
+
     // Vérification de l'environnement DOM
     if (typeof document === 'undefined' || element===null) {
         return {  }

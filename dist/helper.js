@@ -2410,5 +2410,5 @@ const un = /* @__PURE__ */ er(pr), dr = un.default || un, mr = {
   return Object.fromEntries(l);
 };
 export {
-  gr as getSlotsForReact
+  gr as ReactAdaptater
 };
