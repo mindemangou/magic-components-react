@@ -1,12 +1,12 @@
 import Dompurify from 'dompurify'
 import parse from 'html-react-parser'
-import { ReactAdaptaterType } from './magiccomponents-react-types';
+import { ReactAdapterType } from './magiccomponents-react-types';
 
 const sanitizeConfig = {
     FORBID_TAGS: ['style', 'script', 'iframe', 'object', 'embed',"link","meta"]
 };
 
-export const ReactAdaptater:ReactAdaptaterType = (element) => {
+export const ReactAdapter:ReactAdapterType = (element) => {
 
     // Vérification de l'environnement DOM
     if (typeof document === 'undefined' || element===null) {

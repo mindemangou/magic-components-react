@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { ReactAdaptater } from '../src/helper'
+import { ReactAdapter } from '../src/helper'
 
 describe('ReactAdaptater', () => {
     it('should return named slots from a valid template', () => {
@@ -12,7 +12,7 @@ describe('ReactAdaptater', () => {
         `
 
         // @ts-ignore
-        const slots = ReactAdaptater(template)
+        const slots = ReactAdapter(template)
         expect(slots.foo).toBeTruthy()
         expect(slots.bar).toBeTruthy()
     })
@@ -25,7 +25,7 @@ describe('ReactAdaptater', () => {
         `
 
         // @ts-ignore
-        const slots = ReactAdaptater(template)
+        const slots = ReactAdapter(template)
         expect(slots.x).toBeTruthy()
         // On vérifie que le script n'est plus dans le rendu
         // @ts-ignore

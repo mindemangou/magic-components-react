@@ -1,7 +1,7 @@
 import type {ReactNode} from 'react'
 
 
-export type ReactAdaptaterType=(element: HTMLElement|null) => ({[key:PropertyKey]:ReactNode});
+export type ReactAdapterType=(element: HTMLElement|null) => ({[key:PropertyKey]:ReactNode});
  
 declare module '@mindemangou/magiccomponents-react' {
     /**
@@ -9,6 +9,6 @@ declare module '@mindemangou/magiccomponents-react' {
      * @param element - The HTMLElement to extract slots from.
      * @returns An object mapping slot names to parsed React nodes.
      */
-    export const ReactAdaptater:ReactAdaptaterType 
+    export const ReactAdapter:ReactAdapterType 
 
 }
