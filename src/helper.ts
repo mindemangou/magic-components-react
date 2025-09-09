@@ -13,14 +13,27 @@ export const ReactAdapter:ReactAdapterType = (element) => {
         return {  }
     }
 
-    const content = element instanceof HTMLTemplateElement? element.content:element
+    let content;
 
-    const tags = [...content.querySelectorAll("[slot]")]
+    if(element instanceof ShadowRoot){
+
+        content=element.host
+    }else if(element instanceof HTMLTemplateElement){
+
+        content=element.content
+    }else {
+        content=element
+    }
+   
+    const tags = [...content.children]
     const tagMap = new Map()
-
+     
     for (const tag of tags) {
 
         const slotName = tag.getAttribute('slot')
+
+        //Remove slot attribute
+        tag.removeAttribute("slot")
 
         if(!slotName){
             continue
@@ -28,7 +41,7 @@ export const ReactAdapter:ReactAdapterType = (element) => {
 
         const isMagicFragment=tag.tagName.toLocaleLowerCase() === 'magic-fragment'
 
-        const dirty =isMagicFragment?tag.innerHTML :tag.outerHTML
+        const dirty =isMagicFragment? tag.innerHTML :tag.outerHTML
         const sanitized = Dompurify.sanitize(dirty, sanitizeConfig)
         const parsed = parse(sanitized)
 

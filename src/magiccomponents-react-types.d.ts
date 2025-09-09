@@ -1,7 +1,7 @@
 import type {ReactNode} from 'react'
 
 
-export type ReactAdapterType=(element: HTMLElement|null) => ({[key:PropertyKey]:ReactNode});
+export type ReactAdapterType=(element: HTMLElement|ShadowRoot) => ({[key:PropertyKey]:ReactNode});
  
 declare module '@mindemangou/magiccomponents-react' {
     /**
